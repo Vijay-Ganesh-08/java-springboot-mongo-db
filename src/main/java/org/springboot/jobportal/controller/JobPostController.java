@@ -26,7 +26,7 @@ public class JobPostController {
     private SearchRepo searchRepo;
 
     /*
-     * @CrossOrigin Annotation needs to used at the Controller leve
+     * @CrossOrigin Annotation needs to used at the Controller level
      * to accepts the request from UI
      */
 
