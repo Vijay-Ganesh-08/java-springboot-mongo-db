@@ -4,6 +4,7 @@ import com.mongodb.client.AggregateIterable;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import lombok.extern.slf4j.Slf4j;
 import org.bson.Document;
 import org.springboot.jobportal.model.JobPost;
 import org.springboot.jobportal.repository.SearchRepo;
@@ -15,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+@Slf4j
 @Component
 public class SearchRepoImpl implements SearchRepo {
 
@@ -35,6 +37,7 @@ public class SearchRepoImpl implements SearchRepo {
 
     @Override
     public List<JobPost> findByText(String searchString) {
+        log.info("Finding job posts by text {}", searchString);
         final List<JobPost> jobPosts = new ArrayList<>();
         MongoDatabase database = mongoClient.getDatabase("JobPortal");
         MongoCollection<Document> collection = database.getCollection("JobListing");
